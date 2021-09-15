@@ -6,19 +6,16 @@ Repository for the final project for artificial intelligence at Universidad del 
 
 ### install
 
-`bash git clone https://github.com/JuanK120/FinalProjectAI
+git clone https://github.com/JuanK120/FinalProjectAI
 
 npm install
-`
+
  
 
 ### Run (in windows)
 
-`bash 
+node index.js `route of the .txt archive you want to run`
 
-node index.js <<route of the .txt archive you want to run>>
-
-`
 
 ## Part 2 Hex
 
