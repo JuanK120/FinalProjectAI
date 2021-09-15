@@ -2,6 +2,10 @@
 
 Repository for the final project for artificial intelligence at Universidad del valle
 
+made by :
+  Juan Camilo Rosero -- 1746848
+  Maria Fernanda Arroyo -- 1740443
+
 ## Part 1 sokoban
 
 ### install
