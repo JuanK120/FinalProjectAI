@@ -3,6 +3,13 @@ const AgentDfs = require('./agents/AgentDfs');
 const AgentDsi = require('./agents/AgentDsi');
 const Reader = require('./fileReader/Reader');
 
+
+/*
+Este es el main para inicializar el juego. 
+En esta parte se reciben los agentes para cada busqueda respectivamente 
+Se inicializa la game para leer el archivo del juego y
+*/
+
 const _game = new Reader(process.argv[2]);
 var game = _game.readFile();
 

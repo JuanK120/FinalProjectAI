@@ -1,4 +1,7 @@
 const Game = require('../Game/Game');
+//En esta clase constuimos el agente para busqueda por profundidad iterativa 
+// nos basamos inicialmente en elmanejo de las  percepciones 
+// ademas retringimos la busquedad a max 64 niveles
 
 class AgentBfs extends Game {
 	perception(node) {
@@ -189,7 +192,7 @@ class AgentBfs extends Game {
 			}
 			return sonNode;
 		} else {
-			// if solution was found
+			// si se encontró una solución
 			let sonNode = {
 				pos: [x, y],
 				boxes: boxes,
@@ -254,7 +257,8 @@ class AgentBfs extends Game {
 				}
 			}
 		}
-
+//en esta parte se verifican dos salidas por pantalla, si supera los niveles de 
+//busquedad o si no existe solucion
 		this.solution = {};
 		if (exceedsDepth) {
 			console.log('possible solution exceeds allowed depth');

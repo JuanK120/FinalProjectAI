@@ -1,4 +1,7 @@
 const Game = require('../Game/Game');
+//En esta clase constuimos el agente para busqueda por profundidad
+// nos basamos inicialmente en elmanejo de las  percepciones 
+// ademas retringimos la busquedad a max 64 niveles
 
 class AgentDfs extends Game {
 	expand() {
@@ -26,7 +29,8 @@ class AgentDfs extends Game {
 				}
 			}
 		}
-
+//en esta parte se verifican dos salidas por pantalla, si supera los niveles de 
+//busquedad o si no existe solucion
 		this.solution = {};
 		if (exceedsDepth) {
 			console.log('possible solution exceeds allowed depth');

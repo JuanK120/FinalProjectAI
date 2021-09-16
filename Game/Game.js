@@ -1,5 +1,10 @@
 const fs = require('fs');
 
+/*La clase game crea el constructor donde hace un llamado al mundo, la pos
+del jugador, la pos de las cajas, y se crear unos array para almacenar
+la solución, las posicionesmeta, el que indica las visitas a cada casilla y el
+array para la cola de los nodos
+*/
 class Game {
 	constructor(game, gameBoxesPos) {
 		this.world = game.world;
@@ -11,7 +16,7 @@ class Game {
 		this.queue = [];
 		this.setup();
 	}
-
+//En esta parte se pasa a configurar la referencia a las variables indicadas 
 	setup() {
 		let root = {
 			pos: this.pos,
@@ -21,7 +26,7 @@ class Game {
 			father: null,
 			depth: 0,
 		};
-
+// Este for se encarga de verificar que donde hay un x es una casilla para poner caja
 		for (let i = 0; i < this.world.length; i++) {
 			for (let j = 0; j < this.world[0].length; j++) {
 				if (this.world[i][j] === 'X') {
@@ -29,6 +34,8 @@ class Game {
 				}
 			}
 		}
+// En esta parte, se pasa a verificar si existe una B en el mundo, para saber 
+// si existe una caja
 
 		for (let i = 0; i < this.boxes.length; i++) {
 			root.world[this.boxes[i].x][this.boxes[i].y] = 'B';
@@ -49,7 +56,7 @@ class Game {
 
 		return copy;
 	}
-
+// en esta parte verificamos si el agente se encuentra en una caja 
 	isOnBox(x, y, boxes) {
 		for (let i = 0; i < boxes.length; i++) {
 			if (boxes[i].x === x && boxes[i].y === y) {
@@ -58,7 +65,8 @@ class Game {
 		}
 		return false;
 	}
-
+// en esta parte verificamos si la caja esta en la posición indicada y nos retorna
+// true si es correcto
 	GoalState(node) {
 		let boxesInPlace = 0;
 		for (var k = 0; k < this.goalsPositions.length; k++) {
@@ -76,6 +84,7 @@ class Game {
 		return false;
 	}
 
+	//esta función invierta una cadena y la retorna 
 	reverse(string) {
 		let length = string.length - 1;
 		var ret = '';
@@ -97,7 +106,7 @@ class Game {
 		solution = this.reverse(solution);
 		return solution;
 	}
-
+// esta funcion nos ayuda a saber si ya hemos visitado una posición 
 	isVisited(node) {
 		let vis = 0;
 		for (var i = 0; i < this.visited.length; i++) {
@@ -127,7 +136,9 @@ class Game {
 		}
 		return -1;
 	}
-
+// en esta parte manejamos la percepción del agente, para que este reconozca
+//la posición y el espacio en el que esta y al rededor de el y pueda definir 
+// la acción adecuada para continuar.
 	perception(node) {
 		let x = node.pos[0];
 		let y = node.pos[1];

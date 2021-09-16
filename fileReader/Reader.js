@@ -5,20 +5,20 @@ class Reader {
 		this.filename = filename;
 	}
 
-	// Create the game structure
+	// Crea la estructura del juego 
 	createGameInfo(data) {
 		var numbers = '123456789';
 		var positions = [];
 		var matrix = '';
 
-		// info structure
+		// Información de la estructura del juego 
 		var game = {
 			playerPos: [],
 			world: [],
 			boxesPos: [],
 		};
 
-		// Extracting game information
+		// Extraer información del juego
 		for (var i = 0; i < data.length; i++) {
 			if (numbers.indexOf(data.charAt(i), 0) != -1) {
 				positions.push(parseInt(data.charAt(i)));
@@ -46,7 +46,7 @@ class Reader {
 				temp.push(matrix.charAt(i));
 			}
 		}
-		// Setting player and box positions
+		// Establece las posiciones del jugador y de la caja
 		game.playerPos.push(positions[0], positions[1]);
 		for (var i = 2; i < positions.length - 1; i += 2) {
 			game.boxesPos.push({
@@ -58,7 +58,7 @@ class Reader {
 		// Setting map info
 		return game;
 	}
-	// Reads the file information for the game
+	// Lee la información del archivo del juego.
 	readFile() {
 		var data = fs.readFileSync(this.filename, {
 			encoding: 'utf-8',
