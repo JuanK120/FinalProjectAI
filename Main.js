@@ -1,8 +1,13 @@
+/**
+ * AGENTES SOKOBAN
+ * Juan Camilo Rosero 1746848
+ * MAria Fernanda Arroyo 1740443
+ */
+
 const AgentBfs = require('./agents/AgentBfs');
 const AgentDfs = require('./agents/AgentDfs');
 const AgentDsi = require('./agents/AgentDsi');
 const Reader = require('./fileReader/Reader');
-
 
 /*
 Este es el main para inicializar el juego. 
